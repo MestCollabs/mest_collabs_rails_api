@@ -18,7 +18,6 @@ class API::V1::MestersController < ApplicationController
   # POST /mesters
   def create
     @mester = Mester.new(mester_params)
-
     if @mester.save
       render json: @mester, status: :created, location: @mester
     else
