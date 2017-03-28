@@ -52,9 +52,6 @@ class PeopleController < ApplicationController
       params.require(:person).permit(:name, :email)
     end
 
-    #function to render pretter json
-    def render_pretty_json(params)
-      render json: JSON.pretty_generate(params.as_json)
-    end
+
 
 end
