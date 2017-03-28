@@ -5,12 +5,14 @@ class MestersController < ApplicationController
   def index
     @mesters = Mester.all
 
-    render json: @mesters
+    #render json: @mesters
+    render_pretty_json(@mesters)
   end
 
   # GET /mesters/1
   def show
-    render json: @mester
+    #render json: @mester
+    render_pretty_json(@mester)
   end
 
   # POST /mesters
@@ -27,7 +29,8 @@ class MestersController < ApplicationController
   # PATCH/PUT /mesters/1
   def update
     if @mester.update(mester_params)
-      render json: @mester
+      #render json: @mester
+      render_pretty_json(@people)
     else
       render json: @mester.errors, status: :unprocessable_entity
     end
