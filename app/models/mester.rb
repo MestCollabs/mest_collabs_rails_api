@@ -1,0 +1,2 @@
+class Mester < ApplicationRecord
+end
