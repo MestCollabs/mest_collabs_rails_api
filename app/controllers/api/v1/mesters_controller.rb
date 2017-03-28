@@ -1,4 +1,4 @@
-class MestersController < ApplicationController
+class API::V1::MestersController < ApplicationController
   before_action :set_mester, only: [:show, :update, :destroy]
 
   # GET /mesters
