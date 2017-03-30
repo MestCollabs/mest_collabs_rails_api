@@ -1,4 +1,4 @@
-Class AuthenticateApp
+class AuthenticateApp
   prepend SimpleCommand
 
   def initialize(email, password)
@@ -9,6 +9,7 @@ Class AuthenticateApp
   def call
     JsonWebToken.encode(app_id: app.id) if app
   end
+
   private
 
     attr_accessor :email, :password
