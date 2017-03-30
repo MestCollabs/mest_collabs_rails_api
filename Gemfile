@@ -25,6 +25,9 @@ gem 'puma', '~> 3.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+gem 'bcrypt'
+gem "jwt"
+gem 'simple_command'
 gem 'rack-cors'
 gem 'rack-attack'
 gem 'active_model_serializers'
