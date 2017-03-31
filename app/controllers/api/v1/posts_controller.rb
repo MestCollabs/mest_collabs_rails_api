@@ -5,12 +5,14 @@ class API::V1::PostsController < ApplicationController
   def index
     @posts = Post.all
 
-    render json: @posts
+    #render json: @posts
+    render_pretty_json(@posts)
   end
 
   # GET /posts/1
   def show
-    render json: @post
+    #render json: @post
+    render_pretty_json(@post)
   end
 
   # POST /posts
@@ -27,7 +29,8 @@ class API::V1::PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      render json: @post
+      #render json: @post
+      render_pretty_json(@post)
     else
       render json: @post.errors, status: :unprocessable_entity
     end
