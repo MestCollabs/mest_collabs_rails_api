@@ -1,19 +1,23 @@
 Rails.application.routes.draw do
 
-  resources :posts
+
   post 'authenticate', to: 'authentication#authenticate'
 
   resources :feeds
   resources :mesters
+  resources :posts
   resources :mesters do
     resources :feeds
+    resources :posts
   end
 
   namespace :api do
     namespace :v1 do
+      resources :posts
       resources :feeds
       resources :mesters
       resources :mesters do
+        resources :posts
         resources :feeds
       end
     end
