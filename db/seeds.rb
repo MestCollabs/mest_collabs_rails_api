@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+=begin
 Mester.create([
         {
           email:  "paa@gmail.com",
@@ -93,3 +94,18 @@ Post.create([
         mester_id: 1
       }
   ])
+=end
+Company.create([{
+    name: "Asoriba",
+    description: "Next Level church mangaement app",
+    logo: "logoUrl",
+    email: "asoriba@asoriba.com",
+    website: "https://www.asoriba.com",
+    phone: "+233145678902",
+    angel: "angelUrl",
+    crunchcase: "crunchcaseUrl",
+    twitter: "@asoriba",
+    facebook: "facebookUrl",
+    linkedin: "linkedinUrl"
+
+  }])
