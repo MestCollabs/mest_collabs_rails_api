@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :companies
   post 'authenticate', to: 'authentication#authenticate'
 
   resources :feeds
