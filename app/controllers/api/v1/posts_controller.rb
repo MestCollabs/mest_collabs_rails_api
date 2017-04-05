@@ -7,7 +7,7 @@ class API::V1::PostsController < ApplicationController
     Post.all.each do |post|
       post = {
         post: post,
-        mester: get_mester(post.mester_id),
+        poster: get_mester(post.mester_id),
         post_duration: compare_dates(post.created_at)
       }
       @posts.push(post)
