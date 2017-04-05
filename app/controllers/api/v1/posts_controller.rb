@@ -5,12 +5,16 @@ class API::V1::PostsController < ApplicationController
   def index
     @posts = []
     Post.all.each do |post|
-      post = {post: post, mester: get_mester(post.mester_id), post_duration: compare_dates(post.created_at) }
+      post = {
+        post: post,
+        mester: get_mester(post.mester_id),
+        post_duration: compare_dates(post.created_at)
+      }
       @posts.push(post)
     end
 
     #render json: {AllPosts: @posts}
-    render_pretty_json({AllPosts: @posts})
+    render_pretty_json({posts: @posts})
   end
 
   # GET /posts/1
