@@ -14,7 +14,7 @@ class API::V1::FeedsController < ApplicationController
       @feeds.push(feed)
     end
 
-    render json: {feeds: @feeds}
+    render_pretty_json ({feeds: @feeds})
 
     #render json: @feeds
     #render_pretty_json(@feeds)

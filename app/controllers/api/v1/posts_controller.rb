@@ -13,8 +13,8 @@ class API::V1::PostsController < ApplicationController
       @posts.push(post)
     end
 
-    render json: {AllPosts: @posts}
-    #render_pretty_json({posts: @posts})
+    #render json: {AllPosts: @posts}
+    render_pretty_json({posts: @posts})
   end
 
   # GET /posts/1
