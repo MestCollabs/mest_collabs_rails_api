@@ -3,10 +3,14 @@ class API::V1::PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = []
+    Post.all.each do |post|
+      post = {post: post, mester: get_mester(post.mester_id), post_duration: compare_dates(post.created_at) }
+      @posts.push(post)
+    end
 
-    #render json: @posts
-    render_pretty_json(@posts)
+    render json: {AllPosts: @posts}
+    #render_pretty_json(@posts)
   end
 
   # GET /posts/1
@@ -42,6 +46,14 @@ class API::V1::PostsController < ApplicationController
   end
 
   private
+    #Dutation Logic
+    def time_duration (date_one, date_two)
+
+    end
+    #Get mester by id
+    def get_mester(id)
+      Mester.find(id)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])

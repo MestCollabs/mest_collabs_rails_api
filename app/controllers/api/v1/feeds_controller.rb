@@ -5,8 +5,8 @@ class API::V1::FeedsController < ApplicationController
   def index
     @feeds = Feed.all
 
-    #render json: @feeds
-    render_pretty_json(@feeds)
+    render json: @feeds
+    #render_pretty_json(@feeds)
   end
 
   # GET /feeds/1
