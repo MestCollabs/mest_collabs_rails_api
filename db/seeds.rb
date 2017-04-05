@@ -94,7 +94,7 @@ Post.create([
         mester_id: 1
       }
   ])
-=end
+
 Company.create([{
     name: "Asoriba",
     description: "Next Level church mangaement app",
@@ -109,3 +109,52 @@ Company.create([{
     linkedin: "linkedinUrl"
 
   }])
+=end
+
+  Feed.create([
+        {
+          body:     "It's a good day in mest. I am glad I came here",
+          picture:  "https://www.google.com",
+          mester_id: 1
+        },
+        {
+          body:     "It's a good day in mest. I am glad I came here",
+          picture:  "https://www.google.com",
+          mester_id: 1
+        },
+        {
+          body:     "It's a good day in mest. I am glad I came here",
+          picture:  "https://www.google.com",
+          mester_id: 1
+        },
+        {
+          body:     "It's a good day in mest. I am glad I came here",
+          picture:  "https://www.google.com",
+          mester_id: 1
+        },
+        {
+          body:     "It's a good day in mest. I am glad I came here",
+          picture:  "https://www.google.com",
+          mester_id: 1
+        },
+        {
+          body:     "It's a good day in mest. I am glad I came here",
+          picture:  "https://www.google.com",
+          mester_id: 1
+        },
+        {
+          body:     "It's a good day in mest. I am glad I came here",
+          picture:  "https://www.google.com",
+          mester_id: 1
+        },
+        {
+          body:     "It's a good day in mest. I am glad I came here",
+          picture:  "https://www.google.com",
+          mester_id: 1
+        },
+        {
+          body:     "It's a good day in mest. I am glad I came here",
+          picture:  "https://www.google.com",
+          mester_id: 1
+        }
+    ])

@@ -13,8 +13,8 @@ class API::V1::PostsController < ApplicationController
       @posts.push(post)
     end
 
-    #render json: {AllPosts: @posts}
-    render_pretty_json({posts: @posts})
+    render json: {AllPosts: @posts}
+    #render_pretty_json({posts: @posts})
   end
 
   # GET /posts/1
@@ -53,10 +53,6 @@ class API::V1::PostsController < ApplicationController
     #Dutation Logic
     def time_duration (date_one, date_two)
 
-    end
-    #Get mester by id
-    def get_mester(id)
-      Mester.find(id)
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_post

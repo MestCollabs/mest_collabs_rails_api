@@ -14,6 +14,11 @@ class ApplicationController < ActionController::API
 
   private
 
+  #Get mester by id
+  def get_mester(id)
+    Mester.find(id)
+  end
+
    def authenticate_request
      @current_app = AuthorizeApiRequest.call(request.headers).result
      render json: { error: 'Not Authorized' }, status: 401 unless @current_app
@@ -94,7 +99,7 @@ class ApplicationController < ActionController::API
   						#different minute all else the same
   						difference = (date_one_minute_int - date_two_minute_int).to_s
   						"#{difference} minutes ago"
-  					end	
+  					end
   				else
   					#Same year same month same day not the same hour
   					difference = (date_one_hour_int - date_two_hour_int).to_s
