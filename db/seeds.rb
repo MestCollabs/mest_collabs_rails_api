@@ -160,7 +160,7 @@ Company.create([{
       ])
 =end
 
-
+=begin
 Company.create([
   {
         name: "Ampersand",
@@ -465,3 +465,4 @@ Company.create([
 
 
   ])
+=end
