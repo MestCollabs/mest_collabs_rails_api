@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::API
 
   before_action :authenticate_request
-
   attr_reader :current_app
 
   #Include Serialization...
@@ -121,5 +120,54 @@ class ApplicationController < ActionController::API
    		difference.to_i == 1? "#{difference} year ago" : "#{difference} years ago"
    	end
    end
+
+   #custom deep level model display function display
+     def has_many_display(all_low_model_elements, model, hash_name, model_id)
+      all_low_model_elements_array = []
+      all_low_model_elements.each do |each_element|
+        each_element = {hash_name.to_sym =>
+                            {convert_to_sym("#{hash_name}_details")   => each_element,
+                             convert_to_sym("#{hash_name}er_details") => model.find(each_element["#{model_id}"])}}
+        all_low_model_elements_array.push(each_element)
+      end
+      all_low_model_elements_array
+    end
+
+    #custom higher level model display
+    #five parameters Model_name, User_model, user_model_ref, Current_model, current_model_ref, has_many_name
+    def render_with_embeded_has_many(model, low_model_name,  curr_model_ref, user_model_name, user_model_ref, has_many_name )
+      models = []
+      model.all.each do |element|
+        all_low_ele = elements_by_model_id(element.id, low_model_name, "#{curr_model_ref}_id" )
+        has_many_detailed = has_many_display(all_low_ele, user_model_name, "#{has_many_name}", "#{user_model_ref}")
+        elementer = user_model_name.find(element["#{user_model_ref}"])
+
+        element = {convert_to_sym("#{curr_model_ref}") =>
+                            { convert_to_sym("#{curr_model_ref}_details") => element,
+                              convert_to_sym("#{curr_model_ref}_#{has_many_name}s_count") => all_low_ele.count,
+                              convert_to_sym("#{curr_model_ref}_#{has_many_name}s") => all_low_ele,
+                              convert_to_sym("#{curr_model_ref}_#{has_many_name}s_detailed") => has_many_detailed,
+                              convert_to_sym("#{curr_model_ref}er_details") => elementer
+          }}
+        models.push(element)
+      end
+      models
+    end
+
+    #utility functions
+    def convert_to_sym (string)
+      string.downcase.to_sym
+    end
+
+    def elements_by_model_id (model_id, model, reference_id)
+      @models = model.all
+      elements = []
+      @models.each do |element|
+        if element[reference_id] == model_id
+          elements.push(element)
+        end
+      end
+    elements
+    end
 
 end
