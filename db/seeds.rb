@@ -499,4 +499,4 @@ end
 
 #create_n_users(53, Mester, "name", "email", "profilePicture")
 #create_n_feeds(200, Feed, "body", "picture", "mest_power")
-create_n_feedbacks(300)
+#create_n_feedbacks(300)
