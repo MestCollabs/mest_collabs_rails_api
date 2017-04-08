@@ -1,4 +1,4 @@
-class FeedbacksController < ApplicationController
+class API::V1::FeedbacksController < ApplicationController
   before_action :set_feedback, only: [:show, :update, :destroy]
 
   # GET /feedbacks

@@ -3,21 +3,19 @@ class API::V1::FeedsController < ApplicationController
 
   # GET /feeds
   def index
-    #@feeds = Feed.all
-    @feeds = []
-    Feed.all.each do |feed|
-      feed = {
-        feed: feed,
-        source: get_mester(feed.mester_id),
-        feed_duration: compare_dates(feed.created_at)
-      }
-      @feeds.push(feed)
-    end
-
-    render_pretty_json ({feeds: @feeds})
-
-    #render json: @feeds
-    #render_pretty_json(@feeds)
+    # @feeds = []
+    # Feed.all.each do |feed|
+    #   feed = {
+    #     feed: feed,
+    #     source: get_mester(feed.mester_id),
+    #     feed_duration: compare_dates(feed.created_at)
+    #   }
+    #   @feeds.push(feed)
+    # end
+    #
+    # render_pretty_json ({feeds: @feeds})
+    @feeds = render_with_embeded_has_many(Feed, Feedback, "feed", Mester, "mester_id", "feedback")
+    render json: {feeds: @feeds}
   end
 
   # GET /feeds/1

@@ -2,14 +2,16 @@ Rails.application.routes.draw do
 
 
 
-  resources :feedbacks
+
   post 'authenticate', to: 'authentication#authenticate'
 
+  resources :feedbacks
   resources :companies
   resources :feeds
   resources :mesters
   resources :posts
   resources :mesters do
+    resources :feedbacks
     resources :feeds
     resources :posts
   end
@@ -17,10 +19,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :companies
+      resources :feedbacks
       resources :posts
       resources :feeds
       resources :mesters
       resources :mesters do
+        resources :feedbacks
         resources :posts
         resources :feeds
       end
