@@ -4,8 +4,7 @@ class API::V1::CompaniesController < ApplicationController
   # GET /companies
   def index
     @companies = Company.all
-
-    render json: @companies
+    render json: {companies: @companies}
   end
 
   # GET /companies/1
@@ -46,6 +45,6 @@ class API::V1::CompaniesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def company_params
-      params.require(:company).permit(:name, :description, :logo, :email, :website, :phone, :angel, :crunchcase, :twitter, :facebook, :linkedin)
+      params.require(:company).permit(:name, :description, :logo, :email, :website, :phone, :angel, :crunchcase, :twitter, :facebook, :linkedin, :tagline)
     end
 end
