@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407231622) do
+ActiveRecord::Schema.define(version: 20170408152717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20170407231622) do
     t.string   "tagline"
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "mester_id"
+    t.integer  "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id"], name: "index_feedbacks_on_feed_id", using: :btree
+    t.index ["mester_id"], name: "index_feedbacks_on_mester_id", using: :btree
+  end
+
   create_table "feeds", force: :cascade do |t|
     t.string   "body"
     t.string   "picture"
@@ -66,6 +76,8 @@ ActiveRecord::Schema.define(version: 20170407231622) do
     t.index ["mester_id"], name: "index_posts_on_mester_id", using: :btree
   end
 
+  add_foreign_key "feedbacks", "feeds"
+  add_foreign_key "feedbacks", "mesters"
   add_foreign_key "feeds", "mesters"
   add_foreign_key "posts", "mesters"
 end

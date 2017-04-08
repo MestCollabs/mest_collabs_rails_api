@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :feedbacks
   post 'authenticate', to: 'authentication#authenticate'
 
   resources :companies
