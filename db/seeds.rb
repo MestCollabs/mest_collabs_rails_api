@@ -8,34 +8,6 @@
 
 
 =begin
-Mester.create([
-        {
-          email:  "paa@gmail.com",
-          name:   "Paa",
-          profilePicture: "https://www.google.com"
-        },
-        {
-          email:  "duncan@gmail.com",
-          name:   "Duncan",
-          profilePicture: "https://www.google.com"
-        },
-        {
-          email: "mum@gmail.com",
-          name:  "Mum",
-          profilePicture: "https://www.google.com"
-        },
-        {
-          email: "tazz@gmail.com",
-          name:  "Tazz",
-          profilePicture: "https://www.google.com"
-        },
-        {
-          email: "mic@gmail.com",
-          name:  "Micheal",
-          profilePicture: "https://www.google.com"
-        }
-
-  ])
 
 App.create([
       {
@@ -525,6 +497,6 @@ def create_n_feedbacks(n)
   end
 end
 
-#create_n_users(53, Mester, "name", "email", "profilePicture")
-#create_n_feeds(200, Feed, "body", "picture", "mest_power")
-#create_n_feedbacks(300)
+create_n_users(53, Mester, "name", "email", "profilePicture")
+create_n_feeds(200, Feed, "body", "picture", "mest_power")
+create_n_feedbacks(300)
