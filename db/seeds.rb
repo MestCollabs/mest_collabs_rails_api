@@ -497,6 +497,6 @@ def create_n_feedbacks(n)
   end
 end
 
-create_n_users(53, Mester, "name", "email", "profilePicture")
-#create_n_feeds(200, Feed, "body", "picture", "mest_power")
+#create_n_users(53, Mester, "name", "email", "profilePicture")
+create_n_feeds(200, Feed, "body", "picture", "mest_power")
 #create_n_feedbacks(300)
