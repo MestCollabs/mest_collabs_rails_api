@@ -148,7 +148,9 @@ class ApplicationController < ActionController::API
                               convert_to_sym("#{curr_model_ref}_#{has_many_name}s") => all_low_ele,
                               convert_to_sym("#{curr_model_ref}_#{has_many_name}s_detailed") => has_many_detailed,
                               convert_to_sym("#{curr_model_ref}er_details") => elementer
-          }}
+                            },
+                    time_ago: compare_dates(element.updated_at)
+        }
         models.push(element)
       end
       models

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408152717) do
+ActiveRecord::Schema.define(version: 20170408160740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170408152717) do
     t.integer  "mester_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "mest_power"
     t.index ["mester_id"], name: "index_feeds_on_mester_id", using: :btree
   end
 

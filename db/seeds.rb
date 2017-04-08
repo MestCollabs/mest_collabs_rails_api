@@ -466,3 +466,65 @@ Company.create([
 
   ])
 =end
+
+def create_n_users(n, model_name, name, email, profile_picture)
+  count  = 1
+  mail = ["meltwarer.org", "gmail.com", "yahoo.com", "hotmail.com"]
+  n.times do
+    model_name.create!([{
+        name.to_sym => "user_#{count}",
+        email.to_sym => "user_#{count}@#{mail.sample}",
+        profile_picture.to_sym => "https://s26.postimg.org/uk5p8v43t/Tress-_Logo-300x225.png"
+      }])
+      count += 1
+  end
+end
+
+
+def create_n_feeds(n, model_name, body, picture, mest_power)
+  count  = 1
+  mester_count = Mester.first.id.to_i
+  power = [true, false]
+  mester_ids = []
+  Mester.all.count.times do
+    mester_ids.push(mester_count)
+    mester_count += 1
+  end
+  n.times do
+    model_name.create!([{
+        body.to_sym => "feed number_#{count} for the body field",
+        picture.to_sym => "https://s26.postimg.org/j6j5xntl5/MESTSyn_Commerce-300x150.png",
+        mester_id: mester_ids.sample,
+        mest_power.to_sym => power.sample
+      }])
+      count += 1
+  end
+end
+
+def create_n_feedbacks(n)
+  count  = 1
+  mester_count = Mester.first.id.to_i
+  mester_ids = []
+  Mester.all.count.times do
+    mester_ids.push(mester_count)
+    mester_count += 1
+  end
+  feed_count = Feed.first.id.to_i
+  feed_ids = []
+  Feed.all.count.times do
+    feed_ids.push(feed_count)
+    feed_count += 1
+  end
+  n.times do
+    Feedback.create!([{
+        body: "feedback number_#{count} for the body field",
+        mester_id: mester_ids.sample,
+        feed_id: feed_ids.sample
+      }])
+      count += 1
+  end
+end
+
+#create_n_users(53, Mester, "name", "email", "profilePicture")
+#create_n_feeds(200, Feed, "body", "picture", "mest_power")
+#create_n_feedbacks(300)

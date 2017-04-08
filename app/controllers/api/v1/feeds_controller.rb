@@ -57,6 +57,6 @@ class API::V1::FeedsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def feed_params
-      params.require(:feed).permit(:body, :picture, :mester_id)
+      params.require(:feed).permit(:body, :picture, :mester_id, :mest_power)
     end
 end
