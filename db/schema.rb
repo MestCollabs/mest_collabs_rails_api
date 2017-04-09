@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409142126) do
+ActiveRecord::Schema.define(version: 20170409150231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,8 +78,18 @@ ActiveRecord::Schema.define(version: 20170409142126) do
     t.index ["mester_id"], name: "index_posts_on_mester_id", using: :btree
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string   "country"
+    t.string   "phone_number"
+    t.integer  "mester_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["mester_id"], name: "index_profiles_on_mester_id", using: :btree
+  end
+
   add_foreign_key "feedbacks", "feeds"
   add_foreign_key "feedbacks", "mesters"
   add_foreign_key "feeds", "mesters"
   add_foreign_key "posts", "mesters"
+  add_foreign_key "profiles", "mesters"
 end
