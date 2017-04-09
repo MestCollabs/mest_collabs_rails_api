@@ -166,6 +166,7 @@ class ApplicationController < ActionController::API
       elements = []
       @models.each do |element|
         if element[reference_id] == model_id
+          element["time_ago"] = compare_dates(element["created_at"])
           elements.push(element)
         end
       end
