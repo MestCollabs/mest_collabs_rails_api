@@ -4,9 +4,19 @@ class API::V1::MestersController < ApplicationController
   # GET /mesters
   def index
     @mesters = Mester.all
+    @mesters_full = []
+    @mesters.each do |mester|
+      mester = {
+                mester_details: mester,
+                profile: mester.profile,
+                feeds:   mester.feed.all,
+                feedbacks: mester.feedback.all
+      }
 
+      @mesters_full.push(mester)
+    end
     #render json: @mesters
-    render_pretty_json(@mesters)
+    render_pretty_json({mesters: @mesters_full})
   end
 
   # GET /mesters/1

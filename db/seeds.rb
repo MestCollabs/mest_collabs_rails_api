@@ -497,16 +497,16 @@ def create_n_feedbacks(n)
   end
 end
 
-count = Mester.first.id
-country = ["Ghana", "Nigeria", "Kenya", "South Africa"]
-Mester.all.count.times do
-  Profile.create!([{
-    mester_id: count,
-    country: country.sample,
-    phone_number: "9084783678"
-    }])
-  count += 1
-end
+# count = Mester.first.id
+# country = ["Ghana", "Nigeria", "Kenya", "South Africa"]
+# Mester.all.count.times do
+#   Profile.create!([{
+#     mester_id: count,
+#     country: country.sample,
+#     phone_number: "9084783678"
+#     }])
+#   count += 1
+# end
 
 
 #create_n_users(53, Mester, "name", "email", "profilePicture")
