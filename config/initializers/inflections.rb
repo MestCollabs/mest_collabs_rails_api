@@ -15,6 +15,12 @@
 #   inflect.acronym 'RESTful'
 # end
 
+#support for the api folder
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'API'
+end
+
+#support for the light folder
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'LIGHT'
 end
