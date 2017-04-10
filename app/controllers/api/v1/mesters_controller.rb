@@ -8,11 +8,10 @@ class API::V1::MestersController < ApplicationController
     @mesters.each do |mester|
       mester = {
                 mester_details: mester,
-                profile: mester.profile,
-                feeds:   mester.feed.all,
-                feedbacks: mester.feedback.all
+                profile:   mester.profile,
+                feeds:     elements_by_model_id(mester.id, Feed, "mester_id"), #mester.feed.all,
+                feedbacks: elements_by_model_id(mester.id, Feedback, "mester_id") #mester.feedback.all
       }
-
       @mesters_full.push(mester)
     end
     #render json: @mesters
