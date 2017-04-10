@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410111823) do
+ActiveRecord::Schema.define(version: 20170410113745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(version: 20170410111823) do
     t.string   "twitter"
     t.string   "facebook"
     t.string   "linkedin"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "tagline"
+    t.string   "country",     default: "Ghana"
   end
 
   create_table "feedbacks", force: :cascade do |t|
